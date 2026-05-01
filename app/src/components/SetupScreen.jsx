@@ -29,7 +29,13 @@ export default function SetupScreen({ onStart }) {
             <div className="leader-card-name">Saladin</div>
             <div className="leader-card-title">Vizier · Righteousness of the Faith</div>
             <div className="leader-card-desc">
-              Worship Buildings 90% cheaper. Best for Science or Religious victory. Beginner-friendly.
+              Worship Buildings cost 90% less and grant +10% Science, Faith &amp; Culture
+              city-wide. Infrastructure-first; religion arrives automatically.
+            </div>
+            <div style={{ marginTop: 10, display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+              <span className="leader-card-tag leader-card-tag-primary">Science</span>
+              <span className="leader-card-tag leader-card-tag-primary">Religious</span>
+              <span className="leader-card-tag leader-card-tag-primary">Beginner-friendly</span>
             </div>
           </div>
           <div
@@ -39,7 +45,12 @@ export default function SetupScreen({ onStart }) {
             <div className="leader-card-name">Saladin</div>
             <div className="leader-card-title">Sultan · The Victorious</div>
             <div className="leader-card-desc">
-              Doubled Flanking &amp; Support bonuses. Best for Domination. Requires DLC: Leader Pass.
+              Doubles Flanking &amp; Support combat bonuses. Built for early conquest
+              with Mamluks as primary win condition.
+            </div>
+            <div style={{ marginTop: 10, display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+              <span className="leader-card-tag leader-card-tag-tonal">Domination</span>
+              <span className="leader-card-tag leader-card-tag-tonal">Requires DLC</span>
             </div>
           </div>
         </div>
@@ -81,29 +92,36 @@ export default function SetupScreen({ onStart }) {
         </div>
       </div>
 
-      {difficulty === 'Immortal' || difficulty === 'Deity' ? (
-        <div style={{ background: 'rgba(200,168,75,0.08)', border: '1px solid var(--border-bright)', borderRadius: 'var(--radius)', padding: '12px 14px' }}>
-          <div style={{ fontSize: '0.78rem', color: 'var(--gold-dim)', fontFamily: 'sans-serif', lineHeight: 1.5 }}>
-            <strong style={{ color: 'var(--gold)' }}>{difficulty} note:</strong> AI has large yield bonuses and settles very fast. The infrastructure-first approach still applies — but settle City 2 by T15 and build 2 Warriors for defense early.
-          </div>
+      {(difficulty === 'Immortal' || difficulty === 'Deity') && (
+        <div className="setup-callout setup-callout-gold">
+          <strong>{difficulty}:</strong> AI has large yield bonuses and settles fast.
+          Infrastructure-first still applies — but target City 2 by T15 and keep 2
+          Warriors for early defense.
         </div>
-      ) : null}
+      )}
 
-      {mapType === 'Archipelago' ? (
-        <div style={{ background: 'rgba(106,176,186,0.08)', border: '1px solid #3a5060', borderRadius: 'var(--radius)', padding: '12px 14px' }}>
-          <div style={{ fontSize: '0.78rem', color: 'var(--priority-S)', fontFamily: 'sans-serif', lineHeight: 1.5 }}>
-            <strong>Archipelago note:</strong> Desert Folklore may not apply. Harbor before Commercial Hub. Religious Victory is harder — consider Science as primary path.
-          </div>
+      {mapType === 'Archipelago' && (
+        <div className="setup-callout setup-callout-teal">
+          <strong>Archipelago:</strong> Desert Folklore may not apply. Prioritise Harbor
+          before Commercial Hub. Religious Victory is harder on island maps — lean toward
+          Science as primary path.
         </div>
-      ) : null}
+      )}
+
+      {mapType === 'Desert' && (
+        <div className="setup-callout setup-callout-gold">
+          <strong>Desert map:</strong> Arabia's start bias is amplified — Desert Folklore
+          is almost always the correct Pantheon. Watch for oasis clusters near your capital.
+        </div>
+      )}
 
       <button
         className="btn btn-primary w-full"
         disabled={!canStart}
         onClick={() => onStart({ leader, mapType, mapSize, difficulty })}
-        style={{ opacity: canStart ? 1 : 0.4, cursor: canStart ? 'pointer' : 'not-allowed' }}
+        style={{ opacity: canStart ? 1 : 0.4, cursor: canStart ? 'pointer' : 'not-allowed', height: 48, fontSize: '1rem' }}
       >
-        Begin Game
+        Begin Game →
       </button>
     </div>
   )

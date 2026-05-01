@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function CheckpointModal({ phase, onConfirm, onCancel }) {
+export default function CheckpointModal({ phase, onConfirm, onCancel, isLastPhase }) {
   const [answers, setAnswers] = useState({})
 
   const checkpoints = phase.checkpoints || []
@@ -13,8 +13,8 @@ export default function CheckpointModal({ phase, onConfirm, onCancel }) {
   return (
     <div className="modal-overlay" onClick={onCancel}>
       <div className="modal-sheet" onClick={e => e.stopPropagation()}>
-        <div className="modal-title">Phase Check-in</div>
-        <div className="modal-sub">Answer to tailor guidance for the next phase.</div>
+        <div className="modal-title">{isLastPhase ? 'Game Complete' : 'Phase Check-in'}</div>
+        <div className="modal-sub">{isLastPhase ? 'Record final state for your game log.' : 'Answer to tailor guidance for the next phase.'}</div>
 
         {checkpoints.length === 0 ? (
           <p style={{ color: 'var(--text-muted)', fontFamily: 'sans-serif', fontSize: '0.85rem', marginBottom: 20 }}>
@@ -64,7 +64,7 @@ export default function CheckpointModal({ phase, onConfirm, onCancel }) {
             disabled={!allAnswered && checkpoints.length > 0}
             onClick={() => onConfirm(answers)}
           >
-            Advance to next phase →
+            {isLastPhase ? 'Complete game →' : 'Advance to next phase →'}
           </button>
         </div>
       </div>

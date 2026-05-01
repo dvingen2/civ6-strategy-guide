@@ -37,7 +37,7 @@ Before pressing Next Turn on Turn 1, assess your starting tile:
 
 > **Rule of thumb:** A 1-tile move that adds +2 Campus adjacency is almost always worth it. Don't move 3+ tiles chasing uncertain improvement.
 
-### Turn 1–2: Scout or Warrior?
+### Turn 1–2: Warrior movement
 Move your starting Warrior to scout immediately while you build. Key information to gather:
 - Natural Wonders nearby (Astrology Eureka → triggers Holy Site timing)
 - Barbarian camp locations
@@ -45,10 +45,21 @@ Move your starting Warrior to scout immediately while you build. Key information
 - Rival civ starting positions
 
 ### Turn 1–5: First Build
+
+Warriors and Slingers are frequently the right first build, not a fallback:
+
 ```
-Default:  Scout (or second Warrior)
+Barbarian camp or early aggression likely?
+  → Warrior (fight + scout; 2 movement; survives contact)
+Expect to contest early combat?
+  → Slinger (fight + explore; kills a unit → Archery Eureka)
+Open/large map, no threat visible?
+  → Scout (3 movement; best on safe maps where exploration info is highest value)
+Uncertain?
+  → Warrior
 ```
-Intelligence about your surroundings compounds the entire game. The one exception: if Barbarian camps are visible close by, build a Warrior first.
+
+A Scout with 3 movement covers more ground per turn, but a Warrior with 2 movement still reveals most of the strategically relevant map in the same window — while also being able to clear Barbarian camps, escort Settlers, and generate XP. At higher difficulties, where Barbarians are more aggressive and a dead Scout contributes nothing, the combat-capable units are often strictly better.
 
 ---
 
@@ -228,7 +239,7 @@ Is it Military or Cultural?
 
 ### Template A: Mountain Start (Strong Campus + Holy Site potential)
 ```
-Turn 1:    Scout
+Turn 1:    Warrior / Slinger / Scout (map-dependent — see decision above)
 Turn 5:    Monument
 Turn 12:   Settler → City 2
 Turn 18:   Shrine (capital — start Faith accumulation)
@@ -241,7 +252,7 @@ Turn 60:   Campus → Library in 2–3 cities
 
 ### Template B: Plains / River Start (Lower adjacency potential)
 ```
-Turn 1:    Scout
+Turn 1:    Warrior / Slinger / Scout (map-dependent)
 Turn 5:    Monument
 Turn 15:   Settler → City 2 (find better Campus location)
 Turn 22:   Shrine (capital)

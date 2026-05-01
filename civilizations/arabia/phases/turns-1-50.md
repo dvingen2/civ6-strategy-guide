@@ -15,7 +15,7 @@ Before pressing anything, spend 60 seconds reading your map.
 - [ ] River nearby? (Housing + Commercial Hub eligibility)
 - [ ] Oasis tiles? (Food + Production + Gold — very valuable in desert starts)
 - [ ] Desert tiles? (Desert Folklore gives +1 Faith each)
-- [ ] Natural Wonder visible? (Move Scout toward it — triggers Astrology Eureka)
+- [ ] Natural Wonder visible? (Move your exploration unit toward it — triggers Astrology Eureka)
 - [ ] Starting tile Production potential?
 
 **Move or settle decision:**
@@ -33,20 +33,34 @@ Uncertain → SETTLE, don't overthink it
 
 **Actions:**
 1. Settle your capital
-2. Queue **Scout** as first build
+2. Queue your first build (see decision below)
 3. Move **Warrior** in any unscouted direction
 
 **Research:** Start **Pottery** (unlocks Shrine — your first Faith building).
 **Civics:** Start **Code of Laws** (first civic; unlocks early policy slots).
 
-**Why Scout first:** Finding a Natural Wonder triggers the Astrology Eureka, which halves its cost. This matters because you will build Astrology eventually — and you want to build it when the Eureka fires, not chase it early. The Scout also reveals Barbarian camps before they threaten your cities.
+**First build decision:**
+```
+Barbarian camp visible near start?
+  YES → Warrior (fight + scout; survives Barbarian contact)
+Tight-looking map with early AI contact likely?
+  YES → Slinger (fight + explore; killing a unit triggers Archery Eureka)
+Open map, no immediate threat, good Ancient Ruins potential?
+  YES → Scout (3-move exploration; best value on large/safe maps)
+Uncertain?
+  → Warrior (safe default — it scouts AND fights)
+```
+
+Warriors and Slingers are not a fallback — they are often the right call. Both units move 2 tiles per turn and can reach most relevant map information in the same window a Scout would, while also having the combat strength to survive encounters. A Scout that dies to a Barbarian provides nothing; a Warrior that fights Barbarians generates XP and can clear camps for a free Builder.
+
+Scout retains an edge on large maps where the extra 1 movement compounds significantly over many turns, and on maps where Religious City-State discovery or Natural Wonder scouting is high-value.
 
 ---
 
-## Turns 1–5: Early Scouting Phase
+## Turns 1–5: Early Exploration Phase
 
-**Scout:** Move 3–4 tiles per turn using open terrain. Cover as much ground as possible.
-**Warrior:** Patrol near your capital. Don't wander — keep it available for Barbarian defense.
+**First unit:** Explore at maximum pace using open terrain. Cover as much ground as possible. If it's a Warrior or Slinger, keep it in range to fall back to the capital if a threat materialises.
+**Warrior (starting unit):** Patrol near your capital in the opposite direction from your build unit. Don't wander far — it's your fallback against early Barbarian scouts.
 
 **Watch for:**
 - Natural Wonder tiles → note location; move Scout toward them
@@ -58,7 +72,7 @@ Uncertain → SETTLE, don't overthink it
 
 ## Turn 5–8: First Production Decision
 
-Scout should be nearly done.
+Your first unit should be nearly done.
 
 **Queue next build — decision:**
 ```

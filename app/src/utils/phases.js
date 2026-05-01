@@ -26,12 +26,9 @@ export function resolvePhaseItems(phase, flags, priorPhases, allPriorPhaseData) 
   return items
 }
 
-export function phaseCompletionPercent(phase, phaseState, flags) {
+export function phaseCompletionPercent(phase, phaseState, flags, allPriorPhaseData = []) {
   if (!phaseState) return 0
-  const items = phase.items.filter(item => {
-    if (!item.condition) return true
-    return flags[item.condition.flag] === item.condition.value
-  })
+  const items = resolvePhaseItems(phase, flags, null, allPriorPhaseData)
   const essentialItems = items.filter(i => i.priority === 'E' || i.priority === 'H')
   if (essentialItems.length === 0) return 100
   const done = essentialItems.filter(i => phaseState.items?.[i.id] === 'done').length

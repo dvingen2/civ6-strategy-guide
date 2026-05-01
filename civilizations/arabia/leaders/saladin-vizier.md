@@ -196,9 +196,9 @@ Saladin's in-game agenda: he values civs that **share his religion** and grows h
 
 ### Ancient Era
 ```
-Scout/Warrior → Monument → Settler → [Warrior] → [Settler]
+Warrior / Slinger / Scout → Monument → Settler → [Warrior] → [Settler]
 ```
-Skip Shrine in the capital until your city count and production base are established. The Holy Site will wait for the Astrology Eureka.
+First build is context-dependent. Warrior is the safe default: it explores at 2 movement AND fights Barbarians. Slinger gives the Archery Eureka from its first kill. Scout is best on open large maps with no early threat where the extra movement compounds. Skip Shrine in the capital until your city count and production base are established. The Holy Site will wait for the Astrology Eureka.
 
 ### Classical Era
 ```

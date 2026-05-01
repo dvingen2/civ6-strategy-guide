@@ -16,9 +16,12 @@ export default function ExportPanel({ session, phases }) {
   return (
     <div>
       <div className="section-label">Export game log</div>
-      <p style={{ fontFamily: 'sans-serif', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 10, lineHeight: 1.5 }}>
-        Copy this log and paste to Claude or ChatGPT for situational analysis.
-      </p>
+      <div className="export-hint">
+        <strong>Mid-game health check:</strong> paste this log to Claude or ChatGPT and ask
+        "I'm playing Civ 6 as Arabia — what should I prioritise next and why?" The log
+        includes your phase progress, checkpoint answers, and session flags so the LLM has
+        full context.
+      </div>
       <div className="export-preview">{text}</div>
       <button className="btn btn-primary w-full" onClick={handleCopy}>
         {copied ? '✓ Copied to clipboard' : 'Copy to clipboard'}

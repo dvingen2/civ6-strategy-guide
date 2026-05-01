@@ -1,3 +1,5 @@
+import { resolvePhaseItems } from './phases'
+
 export function buildExportText(session, phases) {
   if (!session) return ''
 
@@ -21,13 +23,14 @@ export function buildExportText(session, phases) {
 
     lines.push(`${label} PHASE ${idx + 1}: ${phase.title.toUpperCase()} (${phase.turnRange})`)
 
-    const items = session.phases[phase.id]?.items || {}
-    phase.items.forEach(item => {
-      if (item.condition) {
-        const flagVal = flags[item.condition.flag]
-        if (flagVal !== item.condition.value) return
-      }
-      const status = items[item.id]
+    const itemStatuses = session.phases[phase.id]?.items || {}
+    const priorPhaseData = phases.slice(0, idx).map(p => ({
+      phase: p,
+      state: session.phases[p.id],
+    }))
+    const resolvedItems = resolvePhaseItems(phase, flags, null, priorPhaseData)
+    resolvedItems.forEach(item => {
+      const status = itemStatuses[item.id]
       if (!status) return
       const mark = status === 'done' ? '✓' : status === 'skipped' ? '—' : '✗'
       lines.push(`  ${mark} [${item.priority}] ${item.text}`)

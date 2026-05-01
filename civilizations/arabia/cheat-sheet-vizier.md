@@ -48,7 +48,8 @@ Enhancer:  Itinerant Preachers (+spread range) | Just War (+Apostle CS)
 ## Build Order (Capital)
 
 ```
-Ancient:   Scout → Monument → Settler → [Shrine]
+Ancient:   Warrior/Slinger/Scout → Monument → Settler → [Shrine]
+           (Warrior = safe default; Slinger for Archery Eureka; Scout on large/safe maps)
            Holy Site when Astrology Eureka fires (Natural Wonder discovered)
 Classical: Shrine → Holy Site → Temple → [Settler for city 3]
 Medieval:  Worship Building (1–3 turns! deploy immediately after founding)

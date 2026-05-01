@@ -9,7 +9,7 @@ function Toast({ message }) {
 }
 
 export default function App() {
-  const { session, startSession, resetSession, setItemStatus, setPhaseNote, completePhase } = useSession()
+  const { session, startSession, resetSession, setItemStatus, setPhaseNote, completePhase, goToPhase } = useSession()
   const [toast, setToast] = useState(null)
 
   const showToast = (msg) => {
@@ -59,6 +59,8 @@ export default function App() {
                   key={p.id}
                   className={`progress-pip ${done ? 'done' : current ? 'current' : ''}`}
                   title={`${p.title} (${p.turnRange})`}
+                  onClick={done ? () => goToPhase(i) : undefined}
+                  style={done ? { cursor: 'pointer' } : undefined}
                 />
               )
             })}
@@ -72,12 +74,13 @@ export default function App() {
         )}
 
         {session && isDone && (
-          <div style={{ textAlign: 'center', padding: '48px 24px' }}>
-            <h2 style={{ marginBottom: 12 }}>All phases complete</h2>
-            <p style={{ color: 'var(--text-dim)', fontFamily: 'sans-serif', marginBottom: 24 }}>
-              Your full game log is ready to export for LLM analysis.
-            </p>
-            <button className="btn btn-primary" onClick={handleReset}>Start new game</button>
+          <div className="done-screen">
+            <div className="done-icon">⚔</div>
+            <h2>All phases complete</h2>
+            <p>Your full game log is ready to export — paste it to Claude or ChatGPT for a post-game analysis.</p>
+            <button className="btn btn-primary" style={{ marginTop: 8, height: 48, fontSize: '1rem' }} onClick={handleReset}>
+              Start new game →
+            </button>
           </div>
         )}
 
